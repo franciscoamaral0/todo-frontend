@@ -11,7 +11,7 @@ const SingleTodo = (props) => {
   const [todos, setTodos] = useState([]);
   const [errors, setErrors] = useState({})
   const [changeInput, setChangeinput] = useState('')
-  const [checked, setChecked] = useState(false)
+  
   
   const handleChanges = (e) =>{
     const{value} = e.target
@@ -19,7 +19,7 @@ const SingleTodo = (props) => {
     
   }
   
-console.log(todos.completed)
+
 
   const handleDeleteTodo = async (id) =>{
     await Apiresponse.deleteSingleTodo(id) 
@@ -61,24 +61,23 @@ console.log(todos.completed)
     fetchData()
   },[])
 
-  useEffect(()=>{
-    createData()
-  }, [])
+  
   
   return (
       <>
         <form  className='d-flex' onSubmit={e => {
           e.preventDefault()  
           e.target.reset()}}>
-        <Input className='ms-4' onChange={(e) => handleChanges(e)}/>
+        <Input placeholder= 'Enter a Todo...' className='ms-3' onChange={(e) => handleChanges(e)}/>
         <ButtonSend onClick ={createData} variant="contained">Send New To-do</ButtonSend>
         </form>
 
       
 
       {todos.map((element, index) =>{
-        return  <LineTodo key = {element._id} _id={element._id} title={element.title} completed={element.completed} className= { element.completed === true ? 'text-decoration-line-through text-white p-2 text-wrap text-break': 'text-white p-2 text-wrap  text-break'} deleteTodo = {(id) => handleDeleteTodo(id)}/>
-          
+                
+        return  <LineTodo key = {element._id} _id={element._id} title={element.title}  completed={element.completed} deleteTodo = {handleDeleteTodo} fetchData={fetchData}/>
+        
         })}
         
       </>

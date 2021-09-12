@@ -22,8 +22,9 @@ class Apiresponse {
         return this.api.post(`/todo/`, newTodo)
     }
 
-    putEditSingleTodo = (id) => {
-        return this.api.put(`/todo/${id}`)
+    putEditSingleTodo = (id, todo) => {
+        console.log(todo)
+        return this.api.put(`/todo/${id}`, todo)
     }
 
     deleteSingleTodo = (id) => {

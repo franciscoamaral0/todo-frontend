@@ -38,7 +38,7 @@ const Content = styled.div`
 `
     
 const ButtonSend = styled.button`
-    width: 150px; 
+    width: 173px; 
     
     font-size: 14px;
     border-radius: 30px;

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Api from "../../Api/Api";
 import Apiresponse from "../../Api/Api";
-import { Input } from "../AddTodo.js/AddTodoStyled";
+import { Input } from "../AddTodoInput.js/AddTodoStyled";
 import LineTodo from "../TodoList";
 import { Button } from '@material-ui/core';
 import { ButtonSend } from "../../styles/appStyle";
